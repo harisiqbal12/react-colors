@@ -6,6 +6,7 @@
 	position: relative;
 	cursor: pointer;
   margin-bottom: -4px;
+  overflow-x: hidden;
 }
 
 .copy-button {
@@ -35,7 +36,7 @@
 }
 
 .ColorBox:active .copy-button {
-  transition: 0.3s;
+  transition: 0.2s;
   color: black;
   transform: translateY(1rem);
   
