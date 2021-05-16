@@ -16,15 +16,15 @@ class Palette extends Component {
 	};
 
 	changeFormat = value => {
-		this.setState({format: value})
+		this.setState({ format: value });
 	};
 	render() {
 		const { level, format } = this.state;
-		const { colors } = this.props.palette;
+		const { colors, paletteName, emoji } = this.props.palette;
 		const colorBoxes = colors[level].map((color, index) => (
 			<ColorBox key={index} background={color[format]} name={color.name} />
 		));
-		
+
 		return (
 			<div className="Palette">
 				<Navbar
@@ -33,7 +33,10 @@ class Palette extends Component {
 					handleChange={this.changeFormat}
 				/>
 				<div className="Palette-colors">{colorBoxes}</div>
-				{/* footer */}
+				<footer className="Palette-footer">
+					<h1>{paletteName}</h1>
+					<h2>© by Haris Iqbal, All rights reserved</h2>
+				</footer>
 			</div>
 		);
 	}

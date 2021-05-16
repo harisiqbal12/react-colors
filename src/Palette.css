@@ -8,3 +8,40 @@
 	height: 90%;
 }
 
+.Palette-footer h1 {
+	background-color: white;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	position: relative;
+	top: 0.2rem;
+}
+
+.Palette-footer h2 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+	position: relative;
+	bottom: 1.2rem;
+	left: 0.5rem;
+}
+
+.palletteInfo {
+
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 10px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.authorInfo {
+	
+}
