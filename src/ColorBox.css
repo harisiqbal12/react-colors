@@ -43,6 +43,11 @@
   text-decoration: none;
 }
 
+.dark-text-forCopy {
+  background-color: #a6a7ab;
+  color: black;
+}
+
 .back-button {
   width: 100px;
   opacity: 1;
@@ -72,6 +77,11 @@
   font-size: 12px;
 }
 
+.light-text {
+  color: white;
+}
+
+
 .see-more {
   background: #ced4da;
   position: absolute;
@@ -87,6 +97,11 @@
   font-size: 12px;
   opacity: 0.9;
 }
+
+.dark-text {
+  color: black;
+}
+
 
 .copy-overlay {
   opacity: 0;
