@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Navbar from './Navbar';
+import PaletteFooter from './PaletteFotter'
 import ColorBox from './ColorBox';
 import './Palette.css';
 
@@ -20,7 +21,8 @@ class Palette extends Component {
 	};
 	render() {
 		const { level, format } = this.state;
-		const { colors, paletteName, id } = this.props.palette;
+		const { colors, paletteName, emoji, id } = this.props.palette;
+		console.log(paletteName);
 		const colorBoxes = colors[level].map((color, index) => (
 			<ColorBox
 				showLink={true}
@@ -39,12 +41,10 @@ class Palette extends Component {
 					level={level}
 					changeLevel={this.changeLevel}
 					handleChange={this.changeFormat}
+					showLevel
 				/>
 				<div className="Palette-colors">{colorBoxes}</div>
-				<footer className="Palette-footer">
-					<h1>{paletteName}</h1>
-					<h2>© by Haris Iqbal, All rights reserved</h2>
-				</footer>
+				<PaletteFooter paletteName={paletteName} emoji={emoji} />
 			</div>
 		);
 	}

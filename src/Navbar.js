@@ -3,7 +3,7 @@ import Slider from 'rc-slider';
 import Select from '@material-ui/core/Select';
 import { MenuItem, Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import 'rc-slider/assets/index.css';
 import './Navbar.css';
@@ -32,24 +32,29 @@ class Navbar extends Component {
 	};
 
 	render() {
-		const { level, changeLevel } = this.props;
+		const { level, changeLevel, showLevel } = this.props;
 		return (
 			<header className="Navbar">
 				<div className="logo">
 					<Link to="/">reactcolorpicker</Link>
 				</div>
-				<div className="slider-container">
-					<span>Level: {level}</span>
-					<div className="slider">
-						<Slider
-							defaultValue={level}
-							min={100}
-							max={900}
-							step={100}
-							onAfterChange={changeLevel}
-						/>
+				{showLevel ? (
+					<div className="slider-container">
+						<span>Level: {level}</span>
+						<div className="slider">
+							<Slider
+								defaultValue={level}
+								min={100}
+								max={900}
+								step={100}
+								onAfterChange={changeLevel}
+							/>
+						</div>
 					</div>
-				</div>
+				) : (
+					''
+				)}
+
 				<div className="select-container">
 					<Select value={this.state.format} onChange={this.handleChange}>
 						<MenuItem value="hex">HEX - #fffff</MenuItem>
@@ -64,10 +69,9 @@ class Navbar extends Component {
 					onClose={this.handleClose}
 					// style={{ width: '20rem' }}
 				>
-					<this.Alert
-						severity="success"
-						style={{ backgroundColor: '#4c5561' }}
-					> Format changed - {this.state.format.toUpperCase()}
+					<this.Alert severity="success" style={{ backgroundColor: '#4c5561' }}>
+						{' '}
+						Format changed - {this.state.format.toUpperCase()}
 					</this.Alert>
 				</Snackbar>
 			</header>
