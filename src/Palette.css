@@ -7,6 +7,7 @@
 	height: 90%;
 }
 
+
 .Palette-footer h1 {
 	background-color: white;
 	display: flex;
@@ -32,7 +33,6 @@
 }
 
 .palletteInfo {
-
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -42,5 +42,4 @@
 }
 
 .authorInfo {
-	
 }
