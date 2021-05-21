@@ -8,6 +8,7 @@ import seedColors from './seedColors';
 import NewPaletteForm from './NewPaletteForm';
 import { generatePallet } from './colorHelpers';
 
+
 class App extends Component {
 	findPalette = id => {
 		return seedColors.find(palette => palette.id === id);
