@@ -145,6 +145,12 @@ const NewPaletteForm = props => {
 			[evt.target.name]: evt.target.value,
 		});
 	};
+
+	const removeColor = colorName => {
+		setColors({
+			colors: colors.colors.filter(color => color.name !== colorName),
+		});
+	};
 	return (
 		<div className={classes.root}>
 			<CssBaseline />
@@ -175,7 +181,10 @@ const NewPaletteForm = props => {
 							value={newPaletteName.newPaletteName}
 							name="newPaletteName"
 							validators={['required', 'isPaletteNameUnique']}
-							errorMessages={['Enter Palette Name', 'Palette Name Already Exists']}
+							errorMessages={[
+								'Enter Palette Name',
+								'Palette Name Already Exists',
+							]}
 						/>
 						<Button variant="contained" color="primary" type="submit">
 							Save Palette
@@ -245,6 +254,7 @@ const NewPaletteForm = props => {
 						key={color.name}
 						color={color.color}
 						name={color.name}
+						handleClick={() => removeColor(color.name)}
 					/>
 				))}
 			</main>
