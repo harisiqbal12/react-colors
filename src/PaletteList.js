@@ -10,7 +10,6 @@ const styles = {
 		display: 'flex',
 		alignItems: 'flex-start',
 		justifyContent: 'center',
-		overflowY: 'hidden',
 	},
 	container: {
 		width: '50%',
@@ -37,15 +36,7 @@ const styles = {
 		gridTemplateColumns: 'repeat(3, 30%)',
 		gridGap: '5%',
 	},
-	homepageFooter: {
-		position: 'relative',
-		right: '23.5rem',
-		top: '3rem',
-		'& h2': {
-			color: 'white',
-			fontSize: '0.7rem',
-		},
-	},
+
 };
 
 class PaletteList extends Component {
@@ -70,9 +61,9 @@ class PaletteList extends Component {
 							/>
 						))}
 					</div>
-					<footer className={classes.homepageFooter}>
+					{/* <footer className={classes.homepageFooter}>
 						<h2>© by Haris Iqbal, All rights reserved</h2>
-					</footer>
+					</footer> */}
 				</div>
 			</div>
 		);
