@@ -36,10 +36,10 @@ const styles = {
 		'&:hover': {
 			transition: '0.1s',
 			transform: 'scale(1.2)',
+			color: 'black',
 		},
 		'&:active': {
 			transition: '0.1s',
-			color: '#333333',
 		},
 	},
 };
