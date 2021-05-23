@@ -37,7 +37,7 @@ class PaletteFormNav extends Component {
 		const { classes, open, handleDrawerOpen, handleSubmit } = this.props;
 		const { newPaletteName } = this.state;
 		return (
-			<div>
+			<div className={classes.root}>
 				<CssBaseline />
 				<AppBar
 					position="fixed"
@@ -57,8 +57,10 @@ class PaletteFormNav extends Component {
 							<MenuIcon />
 						</IconButton>
 						<Typography variant="h6" noWrap>
-							Persistent drawer
+							Create A Palette
 						</Typography>
+					</Toolbar>
+					<div className={classes.navBtns}>
 						<ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
 							<TextValidator
 								label="Palette Name"
@@ -74,13 +76,13 @@ class PaletteFormNav extends Component {
 							<Button variant="contained" color="primary" type="submit">
 								Save Palette
 							</Button>
-							<Button variant="contained" color="secondary">
-								<Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-									Go Back
-								</Link>
-							</Button>
 						</ValidatorForm>
-					</Toolbar>
+						<Button variant="contained" color="secondary">
+							<Link style={{ textDecoration: 'none', color: 'white' }} to="/">
+								Go Back
+							</Link>
+						</Button>
+					</div>
 				</AppBar>
 			</div>
 		);

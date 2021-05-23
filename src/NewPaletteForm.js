@@ -24,6 +24,9 @@ const useStyles = makeStyles(theme => ({
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.leavingScreen,
 		}),
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		height: '64px',
 	},
 	appBarShift: {
 		width: `calc(100% - ${drawerWidth}px)`,
@@ -45,6 +48,8 @@ const useStyles = makeStyles(theme => ({
 	},
 	drawerPaper: {
 		width: drawerWidth,
+		display: 'flex',
+		alignItems: 'center',
 	},
 	drawerHeader: {
 		display: 'flex',
@@ -71,19 +76,48 @@ const useStyles = makeStyles(theme => ({
 		}),
 		marginLeft: 0,
 	},
+	navBtns: {
+		color: 'black',
+	},
+	container: {
+		width: '90%',
+		height: '100%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	buttons: {
+		width: '100%',
+	},
+	button: {
+		width: '50%',
+	},
+	picker: {
+		width: '100% !important',
+		marginTop: '2rem',
+	},
+	addColor: {
+		width: '100%',
+		padding: '2rem',
+		marginTop: '1rem',
+		fontSize: '2rem',
+		height: '4rem',
+	},
+	colorNameInput: {
+		width: '100%',
+		height: '40px',
+	},
 }));
 
 const NewPaletteForm = props => {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
-	const [currentColor, setCurrentColor] = React.useState('teal');
 	const [colors, setColors] = React.useState({
 		colors: props.palettes[0].colors,
 	});
 
-	React.useEffect(() => {
-
-	});
+	React.useEffect(() => {});
 
 	const isPaletteFull = colors.colors.length >= 20;
 
@@ -97,9 +131,7 @@ const NewPaletteForm = props => {
 
 	const addNewColors = newColor => {
 		setColors({ colors: [...colors.colors, newColor] });
-
 	};
-
 
 	const handleSubmit = newPaletteName => {
 		const newPalette = {
@@ -157,25 +189,36 @@ const NewPaletteForm = props => {
 					</IconButton>
 				</div>
 				<Divider />
-				<Typography variant="h4">Design Your Palette</Typography>
-				<div>
-					<Button variant="contained" color="secondary" onClick={clearPalette}>
-						Clear Palette
-					</Button>
-					<Button
-						variant="contained"
-						color="primary"
-						disabled={isPaletteFull}
-						onClick={randomColor}
-					>
-						Random Colors
-					</Button>
+				<div className={classes.container}>
+					<Typography variant="h4" gutterBottom>
+						Design Your Palette
+					</Typography>
+					<div className={classes.buttons}>
+						<Button
+							variant="contained"
+							color="secondary"
+							onClick={clearPalette}
+							className={classes.button}
+						>
+							Clear Palette
+						</Button>
+						<Button
+							variant="contained"
+							color="primary"
+							disabled={isPaletteFull}
+							onClick={randomColor}
+							className={classes.button}
+						>
+							Random Color
+						</Button>
+					</div>
+					<ColorPickerForm
+						isPaletteFull={isPaletteFull}
+						colors={colors}
+						classes={classes}
+						addNewColors={addNewColors}
+					/>
 				</div>
-				<ColorPickerForm
-					isPaletteFull={isPaletteFull}
-					colors={colors}
-					addNewColors={addNewColors}
-				/>
 			</Drawer>
 			<main
 				className={clsx(classes.content, {
