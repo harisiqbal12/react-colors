@@ -80,7 +80,9 @@ const NewPaletteForm = props => {
 	const classes = useStyles();
 	const [open, setOpen] = React.useState(false);
 	const [currentColor, setCurrentColor] = React.useState('teal');
-	const [colors, setColors] = React.useState({ colors: [] });
+	const [colors, setColors] = React.useState({
+		colors: props.palettes[0].colors,
+	});
 	const [newName, setNewName] = React.useState({ newName: '' });
 	const [newPaletteName, setNewPaletteName] = React.useState({
 		newPaletteName: '',
@@ -103,6 +105,8 @@ const NewPaletteForm = props => {
 			)
 		);
 	});
+
+	const isPaletteFull = colors.colors.length >= 20;
 
 	const handleDrawerOpen = () => {
 		setOpen(true);
@@ -157,6 +161,17 @@ const NewPaletteForm = props => {
 		setColors(({ colors }) => ({
 			colors: arrayMove(colors, oldIndex, newIndex),
 		}));
+	};
+
+	const clearPalette = () => {
+		setColors({ colors: [] });
+	};
+
+	const randomColor = () => {
+		const allColors = props.palettes.map(p => p.colors).flat();
+		const rand = Math.floor(Math.random() * allColors.length);
+		const randomColors = allColors[rand];
+		setColors({ colors: [...colors.colors, randomColors] });
 	};
 	return (
 		<div className={classes.root}>
@@ -216,12 +231,15 @@ const NewPaletteForm = props => {
 				<Divider />
 				<Typography variant="h4">Design Your Palette</Typography>
 				<div>
-					<Button variant="contained" color="secondary">
-						Clear Input
+					<Button variant="contained" color="secondary" onClick={clearPalette}>
+						Clear Palette
 					</Button>
-					<Button variant="contained" color="primary">
-						Random Color
-					</Button>
+					<Button
+						variant="contained"
+						color="primary"
+						disabled={isPaletteFull}
+						onClick={randomColor}
+					>Random Colors</Button>
 				</div>
 
 				<ChromePicker
@@ -245,8 +263,9 @@ const NewPaletteForm = props => {
 						color="primary"
 						style={{ backgroundColor: currentColor }}
 						type="submit"
+						disabled={isPaletteFull}
 					>
-						Add Color
+						{isPaletteFull ? 'Palette Full' : 'Add Colors'}
 					</Button>
 				</ValidatorForm>
 			</Drawer>
