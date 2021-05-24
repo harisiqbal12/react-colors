@@ -36,8 +36,6 @@ const styles = {
 		gridTemplateColumns: 'repeat(3, 30%)',
 		gridGap: '5%',
 	},
-
-
 };
 
 class PaletteList extends Component {
@@ -58,6 +56,9 @@ class PaletteList extends Component {
 							<MiniPalette
 								{...pal}
 								handleClick={() => this.goToPalette(pal.id)}
+								handleDelete={this.props.deletePalette}
+								key={pal.id}
+								id={pal.id}
 							/>
 						))}
 					</div>
