@@ -37,6 +37,7 @@ const styles = {
 		gridGap: '5%',
 	},
 
+
 };
 
 class PaletteList extends Component {
