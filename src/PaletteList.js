@@ -15,8 +15,8 @@ const styles = {
 		width: '50%',
 		display: 'flex',
 		alignItems: 'flex-start',
-		flexDirection: 'column',
 		flexWrap: 'wrap',
+
 	},
 	nav: {
 		display: 'flex',
