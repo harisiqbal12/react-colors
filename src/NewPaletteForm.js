@@ -111,8 +111,8 @@ const useStyles = makeStyles(theme => ({
 		height: '40px',
 	},
 	headerButton: {
-		margin: '0 0.5rem'
-	}
+		margin: '0 0.5rem',
+	},
 }));
 
 const NewPaletteForm = props => {
@@ -138,11 +138,12 @@ const NewPaletteForm = props => {
 		setColors({ colors: [...colors.colors, newColor] });
 	};
 
-	const handleSubmit = newPaletteName => {
+	const handleSubmit = (newPaletteName, emoji) => {
 		const newPalette = {
 			paletteName: newPaletteName,
 			colors: colors.colors,
 			id: newPaletteName.toLowerCase().replace(/ /g, '-'),
+			emoji,
 		};
 		props.savePalette(newPalette);
 		props.history.push('/');
