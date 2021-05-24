@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import MiniPalette from './MiniPalette';
 import { withStyles } from '@material-ui/styles';
+import './paletteList.css';
 
 const styles = {
 	root: {
-		backgroundColor: 'blue',
 		height: '100vh',
 		display: 'flex',
 		alignItems: 'flex-start',
@@ -32,9 +32,10 @@ const styles = {
 	palette: {
 		boxSizing: 'border-box',
 		width: '100%',
+
 		display: 'grid',
-		gridTemplateColumns: 'repeat(3, 30%)',
-		gridGap: '5%',
+		gridTemplateColumns: 'repeat(4, 30%)',
+		gridGap: '3%',
 	},
 };
 
@@ -45,7 +46,7 @@ class PaletteList extends Component {
 	render() {
 		const { palettes, classes } = this.props;
 		return (
-			<div className={classes.root}>
+			<div className={'homepage ' + classes.root}>
 				<div className={classes.container}>
 					<nav className={classes.nav}>
 						<h1>React Colors</h1>
