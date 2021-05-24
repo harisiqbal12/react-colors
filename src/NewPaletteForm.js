@@ -26,6 +26,7 @@ const useStyles = makeStyles(theme => ({
 		}),
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 		height: '64px',
 	},
 	appBarShift: {
@@ -78,6 +79,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	navBtns: {
 		color: 'black',
+		marginRight: '1rem',
 	},
 	container: {
 		width: '90%',
@@ -108,6 +110,9 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 		height: '40px',
 	},
+	headerButton: {
+		margin: '0 0.5rem'
+	}
 }));
 
 const NewPaletteForm = props => {

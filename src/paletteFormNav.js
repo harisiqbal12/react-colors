@@ -7,7 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { Link } from 'react-router-dom';
 
 import PaletteMetaForm from './PaletteMetaForm';
@@ -18,15 +17,19 @@ class PaletteFormNav extends Component {
 
 		this.state = {
 			newPaletteName: '',
+			formShowing: false,
 		};
 	}
-
-
 
 	handlePaletteNameChange = evt => {
 		this.setState({
 			[evt.target.name]: evt.target.value,
 		});
+	};
+
+	showForm = () => {
+		console.log('clicked');
+		this.setState({ formShowing: true });
 	};
 
 	render() {
@@ -56,15 +59,31 @@ class PaletteFormNav extends Component {
 						</Typography>
 					</Toolbar>
 					<div className={classes.navBtns}>
-
-						<PaletteMetaForm handleSubmit={handleSubmit} palettes={this.props.palettes}/>
-						<Button variant="contained" color="secondary">
+						<Button
+							className={classes.headerButton}
+							variant="contained"
+							color="secondary"
+						>
 							<Link style={{ textDecoration: 'none', color: 'white' }} to="/">
-								Go Back
+								GO Back
 							</Link>
+						</Button>
+						<Button
+							className={classes.headerButton}
+							variant="contained"
+							color="primary"
+							onClick={this.showForm}
+						>
+							Save
 						</Button>
 					</div>
 				</AppBar>
+				{this.state.formShowing && (
+					<PaletteMetaForm
+						handleSubmit={handleSubmit}
+						palettes={this.props.palettes}
+					/>
+				)}
 			</div>
 		);
 	}
