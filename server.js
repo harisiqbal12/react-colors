@@ -11,5 +11,5 @@ app.use(enforce.HTTPS({ trustProtoHeader: true }));
 app.listen(port, () => console.log('app is running'));
 
 app.get('/service-worker.js', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'src', 'service-worker.js'));
+	res.sendFile(path.resolve(__dirname, 'src/serviceWorker.js'));
 });
